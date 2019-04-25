@@ -1,0 +1,18 @@
+<div id="wrapper">
+  <h1>Articles Found</h1>
+  {{#each articles}}
+  <div class="article clearfix" data-id="{{_id}}">
+    <div class="title" data-id="{{_id}}">
+      <h2>{{title}}</h2>
+      <p>{{summary}}</p>
+    </div>
+    <div class="url">
+      <a href="{{link}}">
+        <p>{{link}}</p>
+      </a>
+    </div>
+    <div id="notes"></div>
+  </div>
+  {{/each}}
+
+</div>
