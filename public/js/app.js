@@ -1,12 +1,13 @@
 $(".scrape").on("click", event => {
-  $.post("/delScrape", data => {}).then(
-    $.get("/scrape", data => {}).then(() => {
-    }).then(() => {
-      $("#scrape").attr("href", "/articles")
-      $(".scrape").html("View Articles");
-    })
-  )
+  $.post("/delScrape", data => { })
+    .then($.get("/scrape", data => { })
+      .then(function () {
+        $("#scrape").attr("href", "/articles")
+        $(".scrape").html("View Articles");
+      })
+    )
 })
+
 
 $(".title").on("click", function (event) {
 

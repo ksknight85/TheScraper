@@ -6,8 +6,6 @@ var PORT = 3000;
 var exphbs = require("express-handlebars");
 var app = express();
 var db = require("./models");
-var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
-
 
 app.engine('handlebars', exphbs({defaultLayout: "main"}));
 app.set('view engine', 'handlebars');
@@ -21,10 +19,14 @@ require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 
 // mongoose.connect("mongodb://localhost/thescraper", { useNewUrlParser: true });
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/thescraper";
 
-mongoose.connect(MONGODB_URI);
-
-
-app.listen(process.env.PORT || 3002, function() {
-  console.log("App running on port 3002!");
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true
 });
+
+
+app.listen(process.env.PORT || 3000, function() {
+  console.log("App running on port 3000!");
+});
+
